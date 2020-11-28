@@ -5890,31 +5890,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 912741235590778253, guid: e815477758e6257469dae416424d956a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 63.033577
+      value: 63.060844
       objectReference: {fileID: 0}
     - target: {fileID: 912741235590778253, guid: e815477758e6257469dae416424d956a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.004057411
+      value: 0.0040574074
       objectReference: {fileID: 0}
     - target: {fileID: 912741235590778253, guid: e815477758e6257469dae416424d956a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -51.63296
+      value: -51.60564
       objectReference: {fileID: 0}
     - target: {fileID: 912741235590778253, guid: e815477758e6257469dae416424d956a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 912741235590778253, guid: e815477758e6257469dae416424d956a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7077964
       objectReference: {fileID: 0}
     - target: {fileID: 912741235590778253, guid: e815477758e6257469dae416424d956a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 912741235590778253, guid: e815477758e6257469dae416424d956a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.70641655
       objectReference: {fileID: 0}
     - target: {fileID: 912741235590778253, guid: e815477758e6257469dae416424d956a, type: 3}
       propertyPath: m_RootOrder
@@ -5926,7 +5926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 912741235590778253, guid: e815477758e6257469dae416424d956a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90.112
       objectReference: {fileID: 0}
     - target: {fileID: 912741235590778253, guid: e815477758e6257469dae416424d956a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -7054,7 +7054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToFollow: {fileID: 495102203}
-  offset: {x: 0, y: 2, z: -4}
+  offset: {x: 0, y: 3, z: -5}
   followSpeed: 10
   lookSpeed: 10
 --- !u!4 &965940771 stripped

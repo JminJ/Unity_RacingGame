@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SimpleCarController : MonoBehaviour {
 
+	void Start()
+	{
+		rigid = GetComponent<Rigidbody>();
+	}
 	public void GetInput()
 	{
 		m_horizontalInput = Input.GetAxis("Horizontal");
@@ -19,8 +23,8 @@ public class SimpleCarController : MonoBehaviour {
 
 	private void Accelerate()
 	{
-		frontDriverW.motorTorque = m_verticalInput * motorForce + 380*m_verticalInput;
-		frontPassengerW.motorTorque = m_verticalInput * motorForce + 380*m_verticalInput;
+		frontDriverW.motorTorque = m_verticalInput * motorForce + 15000;
+		frontPassengerW.motorTorque = m_verticalInput * motorForce + 15000;
 	}
 
 	private void UpdateWheelPoses()
@@ -48,12 +52,22 @@ public class SimpleCarController : MonoBehaviour {
 		Steer();
 		Accelerate();
 		UpdateWheelPoses();
+		Jump();
 	}
-
+	void Jump()
+	{
+		if(Input.GetKeyDown(KeyCode.Space))
+		{
+			rigid.AddForce(Vector3.up * JumpPower, ForceMode.Impulse);
+		}
+	}
 	private float m_horizontalInput;
 	private float m_verticalInput;
 	private float m_steeringAngle;
 
+
+	public int JumpPower;
+	private Rigidbody rigid;
 	public WheelCollider frontDriverW, frontPassengerW;
 	public WheelCollider rearDriverW, rearPassengerW;
 	public Transform frontDriverT, frontPassengerT;

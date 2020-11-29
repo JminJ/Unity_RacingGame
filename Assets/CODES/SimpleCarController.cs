@@ -23,8 +23,8 @@ public class SimpleCarController : MonoBehaviour {
 
 	private void Accelerate()
 	{
-		frontDriverW.motorTorque = m_verticalInput * motorForce + 15000;
-		frontPassengerW.motorTorque = m_verticalInput * motorForce + 15000;
+		frontDriverW.motorTorque = m_verticalInput * motorForce + 15000*m_verticalInput;
+		frontPassengerW.motorTorque = m_verticalInput * motorForce + 15000*m_verticalInput;
 	}
 
 	private void UpdateWheelPoses()
@@ -39,7 +39,7 @@ public class SimpleCarController : MonoBehaviour {
 	{
 		Vector3 _pos = _transform.position;
 		Quaternion _quat = _transform.rotation;
-        Debug.Log(_pos);
+        //Debug.Log(_pos);
 		_collider.GetWorldPose(out _pos, out _quat);
         
 		_transform.position = _pos;
@@ -53,20 +53,28 @@ public class SimpleCarController : MonoBehaviour {
 		Accelerate();
 		UpdateWheelPoses();
 		Jump();
+		timer = timer + Time.deltaTime;
 	}
 	void Jump()
-	{
+	{		
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
-			rigid.AddForce(Vector3.up * JumpPower, ForceMode.Impulse);
+			if(timer > waitingTime)
+			{
+				rigid.AddForce(Vector3.up * JumpPower, ForceMode.Impulse);
+			}	
+			timer = 0;
 		}
 	}
+
 	private float m_horizontalInput;
 	private float m_verticalInput;
 	private float m_steeringAngle;
 
 
 	public int JumpPower;
+	private float timer = 1;
+	int waitingTime = 1;
 	private Rigidbody rigid;
 	public WheelCollider frontDriverW, frontPassengerW;
 	public WheelCollider rearDriverW, rearPassengerW;

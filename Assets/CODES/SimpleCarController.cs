@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SimpleCarController : MonoBehaviour {
 
@@ -46,14 +47,25 @@ public class SimpleCarController : MonoBehaviour {
 		_transform.rotation = _quat;
 	}
 
+	void OnTriggerEnter(Collider other)
+	{
+		if(other.gameObject.CompareTag("goods"))
+		{
+			other.gameObject.SetActive(false);
+			points++;
+		}
+	}
+
 	private void FixedUpdate()
 	{
+		CurrentPoint.text = "Point : "+points;
+		retimer();
 		GetInput();
 		Steer();
 		Accelerate();
 		UpdateWheelPoses();
-		Jump();
 		timer = timer + Time.deltaTime;
+		Jump();
 	}
 	void Jump()
 	{		
@@ -67,14 +79,26 @@ public class SimpleCarController : MonoBehaviour {
 		}
 	}
 
+	void retimer()
+	{
+		LimitTime -= Time.deltaTime;
+		text_Timer.text = "남은 시간 : "+Mathf.Round(LimitTime);
+	}
+
 	private float m_horizontalInput;
 	private float m_verticalInput;
 	private float m_steeringAngle;
 
+	GameObject player;
 
+	//private bool pointcheck = false;
+	private int points = 0;
 	public int JumpPower;
 	private float timer = 1;
 	int waitingTime = 1;
+	public float LimitTime;
+	public Text text_Timer;
+	public Text CurrentPoint;
 	private Rigidbody rigid;
 	public WheelCollider frontDriverW, frontPassengerW;
 	public WheelCollider rearDriverW, rearPassengerW;

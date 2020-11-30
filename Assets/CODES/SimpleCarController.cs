@@ -66,6 +66,7 @@ public class SimpleCarController : MonoBehaviour {
 		UpdateWheelPoses();
 		timer = timer + Time.deltaTime;
 		Jump();
+		checkPonint();
 	}
 	void Jump()
 	{		
@@ -84,6 +85,14 @@ public class SimpleCarController : MonoBehaviour {
 		LimitTime -= Time.deltaTime;
 		text_Timer.text = "남은 시간 : "+Mathf.Round(LimitTime);
 	}
+
+	void checkPonint(){
+        
+        if(transform.position.y < -66)
+		{
+        	 transform.position = new Vector3(-521f, -5f, -468f);
+        }   
+    }
 
 	private float m_horizontalInput;
 	private float m_verticalInput;

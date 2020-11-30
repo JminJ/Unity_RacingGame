@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class car_for_racing : MonoBehaviour
 {
    void Start()
 	{
+		Finish.gameObject.SetActive(false);
 		rigid = GetComponent<Rigidbody>();
         colliderRWL = rearDriverW.GetComponent<WheelCollider>();
         colliderRWR = rearPassengerW.GetComponent<WheelCollider>();
@@ -86,22 +88,44 @@ public class car_for_racing : MonoBehaviour
         }
     }
 
+	void OnTriggerEnter(Collider other)
+	{
+		if(other.gameObject.CompareTag("checkpoint"))
+		{
+			other.gameObject.SetActive(false);
+			points ++;
+		}
+		if(points >= 4 && other.gameObject.CompareTag("lastPoint"))
+		{
+			lasttime = timer;
+			Finish.gameObject.SetActive(true);
+			Finish.text = "Your Score : "+lasttime;
+		}
+	}
+
+	void retimer()
+	{
+		timer += Time.deltaTime;
+		point.text = "Time : "+timer;
+	}
 
 	private void FixedUpdate()
 	{
+		retimer();
 		GetInput();
 		Steer();
 		Accelerate();
 		UpdateWheelPoses();
-        Drift();
-		timer = timer + Time.deltaTime;
+        Drift();	
 	}
 
 	private float m_horizontalInput;
 	private float m_verticalInput;
 	private float m_steeringAngle;
 
-	private float timer = 1;
+	private float lasttime = 0;
+	private float timer = 0;
+	private int points = 0;
 	private Rigidbody rigid;
 	public WheelCollider frontDriverW, frontPassengerW;
 	public WheelCollider rearDriverW, rearPassengerW;
@@ -109,7 +133,8 @@ public class car_for_racing : MonoBehaviour
 	public Transform rearDriverT, rearPassengerT;
 	public float maxSteerAngle = 30;
 	public float motorForce = 50;
-
+	public Text point;
+	public Text Finish;
     WheelCollider colliderRWL;
     WheelCollider colliderRWR;
     WheelFrictionCurve fFrictionRWL;

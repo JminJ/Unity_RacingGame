@@ -7,6 +7,8 @@ TagManager:
   - track
   - desert
   - goods
+  - checkpoint
+  - lastPoint
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - 
   - 
   - minimap
-  - 
+  - checkpoints
   - 
   - 
   - 

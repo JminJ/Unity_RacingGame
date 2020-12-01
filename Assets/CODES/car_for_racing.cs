@@ -7,10 +7,10 @@ public class car_for_racing : MonoBehaviour
 {
    void Start()
 	{
-		Finish.gameObject.SetActive(false);
 		rigid = GetComponent<Rigidbody>();
         colliderRWL = rearDriverW.GetComponent<WheelCollider>();
         colliderRWR = rearPassengerW.GetComponent<WheelCollider>();
+		Finish.gameObject.SetActive(false);
 
         fFrictionRWL = colliderRWL.forwardFriction;
         sFrictionRWL = colliderRWL.sidewaysFriction;
@@ -97,9 +97,8 @@ public class car_for_racing : MonoBehaviour
 		}
 		if(points >= 4 && other.gameObject.CompareTag("lastPoint"))
 		{
-			lasttime = timer;
 			Finish.gameObject.SetActive(true);
-			Finish.text = "Your Score : "+lasttime;
+			Finish.text = "Your Score is "+timer;
 		}
 	}
 
@@ -123,7 +122,6 @@ public class car_for_racing : MonoBehaviour
 	private float m_verticalInput;
 	private float m_steeringAngle;
 
-	private float lasttime = 0;
 	private float timer = 0;
 	private int points = 0;
 	private Rigidbody rigid;

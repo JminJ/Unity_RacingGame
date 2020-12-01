@@ -8,6 +8,7 @@ public class SimpleCarController : MonoBehaviour {
 	void Start()
 	{
 		rigid = GetComponent<Rigidbody>();
+		PlayerScore.gameObject.SetActive(false);
 	}
 	public void GetInput()
 	{
@@ -24,8 +25,8 @@ public class SimpleCarController : MonoBehaviour {
 
 	private void Accelerate()
 	{
-		frontDriverW.motorTorque = m_verticalInput * motorForce + 15000*m_verticalInput;
-		frontPassengerW.motorTorque = m_verticalInput * motorForce + 15000*m_verticalInput;
+		frontDriverW.motorTorque = m_verticalInput * motorForce + 25000*m_verticalInput;
+		frontPassengerW.motorTorque = m_verticalInput * motorForce + 25000*m_verticalInput;
 	}
 
 	private void UpdateWheelPoses()
@@ -82,8 +83,18 @@ public class SimpleCarController : MonoBehaviour {
 
 	void retimer()
 	{
-		LimitTime -= Time.deltaTime;
-		text_Timer.text = "남은 시간 : "+Mathf.Round(LimitTime);
+		if(LimitTime >= 0)
+		{
+			LimitTime -= Time.deltaTime;
+			text_Timer.text = "남은 시간 : "+Mathf.Round(LimitTime);
+		}
+		else
+		{
+			text_Timer.gameObject.SetActive(false);
+			PlayerScore.gameObject.SetActive(true);
+			PlayerScore.text = "Your Point is... "+points;
+		}
+		
 	}
 
 	void checkPonint(){
@@ -108,6 +119,7 @@ public class SimpleCarController : MonoBehaviour {
 	public float LimitTime;
 	public Text text_Timer;
 	public Text CurrentPoint;
+	public Text PlayerScore;
 	private Rigidbody rigid;
 	public WheelCollider frontDriverW, frontPassengerW;
 	public WheelCollider rearDriverW, rearPassengerW;

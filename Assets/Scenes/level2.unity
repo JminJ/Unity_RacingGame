@@ -5023,6 +5023,7 @@ GameObject:
   - component: {fileID: 558917019}
   - component: {fileID: 558917018}
   - component: {fileID: 558917017}
+  - component: {fileID: 558917020}
   m_Layer: 9
   m_Name: Cube (4)
   m_TagString: lastPoint
@@ -5106,6 +5107,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558917015}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &558917020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558917015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1603a43e54638224fadb49e88c9cc249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Finish: {fileID: 1821178007}
 --- !u!1001 &562321220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8601,7 +8615,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
@@ -8675,18 +8688,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 5.9, y: -359.948, z: -0.723}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d94eaf301a3e7144b0b4075af16e66f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8699,7 +8700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a41e2f90c27434d8af124ba23ece4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 1059946166}
   offset: {x: 0, y: 3, z: -5}
   followSpeed: 10
   lookSpeed: 10
@@ -10858,6 +10858,7 @@ GameObject:
   - component: {fileID: 1236212125}
   - component: {fileID: 1236212127}
   - component: {fileID: 1236212126}
+  - component: {fileID: 1236212128}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -10926,6 +10927,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236212124}
   m_CullTransparentMesh: 0
+--- !u!114 &1236212128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236212124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11492f5c0d09a674c80ee78cab2a5767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Timer: {fileID: 1236212126}
 --- !u!1 &1253242811 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 114448, guid: 50294217694c1a145a9a3b86f853c022, type: 3}
@@ -19520,6 +19534,10 @@ PrefabInstance:
     - target: {fileID: 1927703462819002830, guid: 2db89770563a1b143827666394e3a4ae, type: 3}
       propertyPath: m_Name
       value: Racing_Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927703462819002830, guid: 2db89770563a1b143827666394e3a4ae, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1929874565534406568, guid: 2db89770563a1b143827666394e3a4ae, type: 3}
       propertyPath: m_LocalPosition.x

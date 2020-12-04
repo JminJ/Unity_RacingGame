@@ -10,13 +10,21 @@ public class car_for_racing : MonoBehaviour
 		rigid = GetComponent<Rigidbody>();
         colliderRWL = rearDriverW.GetComponent<WheelCollider>();
         colliderRWR = rearPassengerW.GetComponent<WheelCollider>();
-		Finish.gameObject.SetActive(false);
+		//Finish.gameObject.SetActive(false);
 
         fFrictionRWL = colliderRWL.forwardFriction;
         sFrictionRWL = colliderRWL.sidewaysFriction;
         fFrictionRWR = colliderRWR.forwardFriction;
         sFrictionRWR = colliderRWR.sidewaysFriction;
 	}
+	void startStage()
+    {
+        // charactors = Turn_On_The_Stage.charactorNum;
+        // respawn = GameObject.FindGameObjectWithTag("Respawn");
+        // // 위치를 위한 오브젝트
+        // for(int i=0; i<5; i++)
+        //     if (charactors == i) Instantiate(Cars[i],respawn.transform.position , Quaternion.identity);
+    }
 	public void GetInput()
 	{
 		m_horizontalInput = Input.GetAxis("Horizontal");
@@ -95,17 +103,19 @@ public class car_for_racing : MonoBehaviour
 			other.gameObject.SetActive(false);
 			points ++;
 		}
-		if(points >= 4 && other.gameObject.CompareTag("lastPoint"))
-		{
-			Finish.gameObject.SetActive(true);
-			Finish.text = "Your Score is "+timer;
-		}
+		// if(points >= 4 && other.gameObject.CompareTag("lastPoint"))
+		// {
+		// 	// Finish.gameObject.SetActive(true);
+		// 	// Finish.text = "Your Score is "+timer;
+		// 	finish_Ok = true;
+		// 	//Debug.Log(finish_Ok);
+		// }
 	}
 
 	void retimer()
 	{
 		timer += Time.deltaTime;
-		point.text = "Time : "+timer;
+		//point.text = "Time : "+timer;
 	}
 
 	private void FixedUpdate()
@@ -118,12 +128,20 @@ public class car_for_racing : MonoBehaviour
         Drift();	
 	}
 
+	//////////
+	//int charactors;
+	//public GameObject []Cars = new GameObject[5];
+	//GameObject respawn = null;
+	//////////
+
 	private float m_horizontalInput;
 	private float m_verticalInput;
 	private float m_steeringAngle;
 
-	private float timer = 0;
-	private int points = 0;
+	static public float timer = 0;
+	static public int points = 4;
+	static public bool finish_Ok = false;
+
 	private Rigidbody rigid;
 	public WheelCollider frontDriverW, frontPassengerW;
 	public WheelCollider rearDriverW, rearPassengerW;
@@ -131,8 +149,8 @@ public class car_for_racing : MonoBehaviour
 	public Transform rearDriverT, rearPassengerT;
 	public float maxSteerAngle = 30;
 	public float motorForce = 50;
-	public Text point;
-	public Text Finish;
+	//public Text point;
+	//public Text Finish;
     WheelCollider colliderRWL;
     WheelCollider colliderRWR;
     WheelFrictionCurve fFrictionRWL;

@@ -26,7 +26,7 @@ public class Turn_On_The_Stage : MonoBehaviour
             charactorNum++;
             if (charactorNum == 5)
                 charactorNum = 0;
-            value -= 90;
+            value -= 72;
             // 각도를 90도 뺍니다.
             bTurnLeft = false;
             // 부울 변수를 취소합니다.
@@ -37,7 +37,7 @@ public class Turn_On_The_Stage : MonoBehaviour
             charactorNum--;
             if (charactorNum == -1)
                 charactorNum = 4;
-            value += 90;
+            value += 72;
             // 각도를 90도 더합니다.
             bTurnRight = false;
             // 부울 변수를 취소합니다.
@@ -65,7 +65,7 @@ public class Turn_On_The_Stage : MonoBehaviour
     public void turnStage()
     {
         // 스테이지 전환을 위한 함수
-        SceneManager.LoadScene("OnTheStage");
+        SceneManager.LoadScene("level2");
     }
 }
 

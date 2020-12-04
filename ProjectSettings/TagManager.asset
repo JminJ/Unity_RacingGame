@@ -9,6 +9,7 @@ TagManager:
   - goods
   - checkpoint
   - lastPoint
+  - respawn
   layers:
   - Default
   - TransparentFX

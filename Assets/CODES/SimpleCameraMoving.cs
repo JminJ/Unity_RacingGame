@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class SimpleCameraMoving : MonoBehaviour
 {
+
+	void Strat()
+	{
+		objectToFollow = toFollow.transform;
+	}
    public void LookAtTarget()
 	{
 		Vector3 _lookDirection = objectToFollow.position - transform.position;
@@ -26,7 +31,8 @@ public class SimpleCameraMoving : MonoBehaviour
 		MoveToTarget();
 	}
 
-	public Transform objectToFollow;
+	GameObject toFollow = GameObject.FindWithTag("Player");
+	private Transform objectToFollow;
 	public Vector3 offset;
 	public float followSpeed = 10;
 	public float lookSpeed = 10;

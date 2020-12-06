@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleCameraMoving : MonoBehaviour
+public class CubeMove1 : MonoBehaviour
 {
+    // Start is called before the first frame update
+    void Start()
+    {
+         objectToFollow = GameObject.FindWithTag("Player").GetComponent<Transform>();
+         print("cubemove");
+    }
 
-	void Strat()
-	{
-		objectToFollow = toFollow.transform;
-	}
-   public void LookAtTarget()
+    public void LookAtTarget()
 	{
 		Vector3 _lookDirection = objectToFollow.position - transform.position;
 		Quaternion _rot = Quaternion.LookRotation(_lookDirection, Vector3.up);
@@ -31,7 +33,6 @@ public class SimpleCameraMoving : MonoBehaviour
 		MoveToTarget();
 	}
 
-	GameObject toFollow = GameObject.FindWithTag("Player");
 	private Transform objectToFollow;
 	public Vector3 offset;
 	public float followSpeed = 10;

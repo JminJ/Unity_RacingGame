@@ -10,6 +10,7 @@ TagManager:
   - checkpoint
   - lastPoint
   - respawn
+  - car
   layers:
   - Default
   - TransparentFX

@@ -33,15 +33,15 @@ public class car_for_racing : MonoBehaviour
 
 	private void Steer()
 	{
-		m_steeringAngle = maxSteerAngle * m_horizontalInput/2;
+		m_steeringAngle = maxSteerAngle * m_horizontalInput/3;
 		frontDriverW.steerAngle = m_steeringAngle;
 		frontPassengerW.steerAngle = m_steeringAngle;
 	}
 
 	private void Accelerate()
 	{
-		frontDriverW.motorTorque = 1500*m_verticalInput;
-		frontPassengerW.motorTorque = 1500*m_verticalInput;
+		frontDriverW.motorTorque = 1000*m_verticalInput;
+		frontPassengerW.motorTorque = 1000*m_verticalInput;
 	}
 
 	private void UpdateWheelPoses()
@@ -139,7 +139,7 @@ public class car_for_racing : MonoBehaviour
 	private float m_steeringAngle;
 
 	static public float timer = 0;
-	static public int points = 4;
+	static public int points = 0;
 	static public bool finish_Ok = false;
 
 	private Rigidbody rigid;

@@ -16,7 +16,6 @@ public class level2_timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("hhhh");
         Timer.text = "Time : "+car_for_racing.timer;
     }
 }

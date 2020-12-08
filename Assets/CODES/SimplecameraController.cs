@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SimplecameraController : MonoBehaviour
 {
@@ -8,6 +10,9 @@ public class SimplecameraController : MonoBehaviour
     void Start()
     {
         objectToFollow = GameObject.FindWithTag("Player").GetComponent<Transform>();
+		are_you.gameObject.SetActive(false);
+		Yes.gameObject.SetActive(false);
+		No.gameObject.SetActive(false);
         //this.transform.parent = objectToFollow;
         //transform.position = new Vector3(0,0,0);
 		
@@ -18,7 +23,7 @@ public class SimplecameraController : MonoBehaviour
     {
         LookAtTarget();
 		MoveToTarget();
-		
+		Go_To_MainPage();
     }
 
     public void MoveToTarget()
@@ -37,8 +42,34 @@ public class SimplecameraController : MonoBehaviour
 		transform.rotation = Quaternion.Lerp(transform.rotation, _rot, lookSpeed * Time.deltaTime);
 	}
 
+	public void Go_To_MainPage()
+	{
+		if(Input.GetKeyDown(KeyCode.G))
+		{
+			are_you.gameObject.SetActive(true);
+			Yes.gameObject.SetActive(true);
+			No.gameObject.SetActive(true);
+		}
+	}
+
+	public void yes_go()
+	{
+		SceneManager.LoadScene("CarSelect");
+	}
+	public void no_go()
+	{
+		are_you.gameObject.SetActive(false);
+		Yes.gameObject.SetActive(false);
+		No.gameObject.SetActive(false);
+	}
+
+
     private Transform objectToFollow;
 	public Vector3 offset;
 	public float followSpeed = 10;
 	public float lookSpeed = 10;
+
+	public Text are_you;
+	public Button Yes;
+	public Button No;
 }

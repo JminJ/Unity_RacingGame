@@ -14,7 +14,10 @@ public class Turn_On_The_Stage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         turn.eulerAngles = new Vector3(0, value, 0);
+        charactorNum = 0;
+        car_for_racing.points = 0;
+        car_for_racing.timer = 0;
+        turn.eulerAngles = new Vector3(0, value, 0);
     }
 
     // Update is called once per frame

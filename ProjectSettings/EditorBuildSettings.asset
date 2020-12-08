@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/CarSelect.unity
     guid: 886bfd586650b824ba622e5802737762
   - enabled: 1
+    path: Assets/Scenes/level1.unity
+    guid: 4bfe472e11db2054a8a1b33109cbf3f2
+  - enabled: 1
     path: Assets/Scenes/level2.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/offroadMap.unity
+    guid: 0c23931426591cc41a068e45a2ccef63
   m_configObjects: {}

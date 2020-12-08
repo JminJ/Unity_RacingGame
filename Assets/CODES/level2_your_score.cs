@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class level2_your_score : MonoBehaviour
 {
     public Text Finish;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,4 +26,8 @@ public class level2_your_score : MonoBehaviour
 			Finish.text = "Your Score is "+car_for_racing.timer;
 		}
     }
+    /* void go_to_main()
+    {
+        SceneManager.LoadScene("CarSelect");
+    } */
 }

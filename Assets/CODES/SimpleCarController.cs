@@ -93,6 +93,9 @@ public class SimpleCarController : MonoBehaviour {
 			text_Timer.gameObject.SetActive(false);
 			PlayerScore.gameObject.SetActive(true);
 			PlayerScore.text = "Your Point is... "+points;
+			for(int i = 0; i < 9; i++){
+				Historics[i].gameObject.SetActive(false);
+			}	
 		}
 		
 	}
@@ -127,4 +130,5 @@ public class SimpleCarController : MonoBehaviour {
 	public Transform rearDriverT, rearPassengerT;
 	public float maxSteerAngle = 30;
 	public float motorForce = 50;
+	public GameObject []Historics = new GameObject[9];
 }

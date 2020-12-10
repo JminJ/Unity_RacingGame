@@ -3076,6 +3076,16 @@ MonoBehaviour:
   rearPassengerT: {fileID: 2116679823}
   maxSteerAngle: 30
   motorForce: 0
+  Historics:
+  - {fileID: 850010102}
+  - {fileID: 734924288}
+  - {fileID: 1120234078}
+  - {fileID: 1141190636}
+  - {fileID: 611246744}
+  - {fileID: 1010728109}
+  - {fileID: 1026412164}
+  - {fileID: 540908697}
+  - {fileID: 937506167}
 --- !u!4 &1018587389 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3789747634923671915, guid: 967825dfdc7287f4b9fbdced84e98cb3, type: 3}

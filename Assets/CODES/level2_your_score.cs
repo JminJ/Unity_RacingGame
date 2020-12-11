@@ -17,7 +17,7 @@ public class level2_your_score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     void OnTriggerEnter(Collider other){
         if(car_for_racing.points >= 4 && other.gameObject.CompareTag("Player"))

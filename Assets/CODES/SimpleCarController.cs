@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
 public class SimpleCarController : MonoBehaviour {
+
+	bool check = false;
 
 	void Start()
 	{
@@ -95,7 +98,13 @@ public class SimpleCarController : MonoBehaviour {
 			PlayerScore.text = "Your Point is... "+points;
 			for(int i = 0; i < 9; i++){
 				Historics[i].gameObject.SetActive(false);
-			}	
+			}
+
+			if (!check)
+			{
+				StartCoroutine(GetRequest(string.Format("localhost:3000/api/delete_track?track={0}&name={1}&record={2}", 3, Login.loginName, points)));
+				check = true;
+			}
 		}
 		
 	}
@@ -107,6 +116,34 @@ public class SimpleCarController : MonoBehaviour {
         	 transform.position = new Vector3(-521f, -5f, -468f);
         }   
     }
+
+	IEnumerator GetRequest(string uri)
+	{
+		using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+		{
+			// Request and wait for the desired page.
+			yield return webRequest.SendWebRequest();
+
+			string[] pages = uri.Split('/');
+			int page = pages.Length - 1;
+
+			bool result;
+
+			if (webRequest.isNetworkError)
+			{
+				Debug.Log(pages[page] + ": Error: " + webRequest.error);
+				result = false;
+			}
+
+			Debug.Log(pages[page] + ": Res: " + webRequest.downloadHandler.text);
+			result = !(webRequest.downloadHandler.text == "Internal Server Error");
+
+			if (uri.Contains("delete"))
+            {
+				StartCoroutine(GetRequest(string.Format("localhost:3000/api/add_track3?name={0}&record={1}", Login.loginName, points)));
+			}
+		}
+	}
 
 	private float m_horizontalInput;
 	private float m_verticalInput;

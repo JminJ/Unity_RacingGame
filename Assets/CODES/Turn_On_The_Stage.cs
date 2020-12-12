@@ -67,8 +67,22 @@ public class Turn_On_The_Stage : MonoBehaviour
 
     public void turnStage()
     {
-        // 스테이지 전환을 위한 함수
-        SceneManager.LoadScene("level2");
+        if (SelectTrack.isTutorial)
+        {
+            SceneManager.LoadScene(9);
+        }
+        else
+        {
+            // 스테이지 전환을 위한 함수
+            if (SelectTrack.isTutorial)
+            {
+                SceneManager.LoadScene(6);
+            }
+            else
+            {
+                SceneManager.LoadScene(5 + SelectTrack.track);
+            }
+        }
     }
 }
 

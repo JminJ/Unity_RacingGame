@@ -54,7 +54,15 @@ public class SimplecameraController : MonoBehaviour
 
 	public void yes_go()
 	{
-		SceneManager.LoadScene("CarSelect");
+		if (SelectTrack.isTutorial)
+		{
+			SceneManager.LoadScene(0);
+			SelectTrack.isTutorial = false;
+		}
+		else
+		{
+			SceneManager.LoadScene(4);
+		}
 	}
 	public void no_go()
 	{

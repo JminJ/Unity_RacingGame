@@ -6,15 +6,36 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 0b84c45c245df714e87c7598b3743713
+  - enabled: 1
+    path: Assets/Scenes/Manual.unity
+    guid: 0d705f75bb017cb4eaf668bfc85c67eb
+  - enabled: 1
+    path: Assets/Scenes/Login.unity
+    guid: cedfa962d17dcb54c9b10c918e68205b
+  - enabled: 1
+    path: Assets/Scenes/Register.unity
+    guid: 06cee112601bd594f9ea5c6bc061efd0
+  - enabled: 1
+    path: Assets/Scenes/TrackList.unity
+    guid: 05977effa8f5a744c8e0a09cc40f7032
+  - enabled: 1
     path: Assets/Scenes/CarSelect.unity
     guid: 886bfd586650b824ba622e5802737762
   - enabled: 1
-    path: Assets/Scenes/level1.unity
-    guid: 4bfe472e11db2054a8a1b33109cbf3f2
+    path: Assets/Scenes/real_level1.unity
+    guid: c3bcd3d895271d64bb60383b010ef1d7
   - enabled: 1
     path: Assets/Scenes/level2.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/offroadMap.unity
     guid: 0c23931426591cc41a068e45a2ccef63
+  - enabled: 1
+    path: Assets/Scenes/level1.unity
+    guid: 4bfe472e11db2054a8a1b33109cbf3f2
+  - enabled: 1
+    path: Assets/Scenes/Leaderboard.unity
+    guid: 2b1983b500891524ca7342e5be3cb1eb
   m_configObjects: {}
